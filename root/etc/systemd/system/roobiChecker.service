@@ -1,0 +1,12 @@
+[Unit]
+Description=Check roobi server
+After=roobi.service
+
+[Service]
+WorkingDirectory=/usr/Roobi
+ExecStart=/bin/bash /usr/Roobi/checker.sh
+KillSignal=SIGKILL
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
