@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -euo pipefail
+shopt -s nullglob
+
+ROOT_PART="$(findmnt -rno SOURCE / | sed "s/\(.*\)\[.*\]/\1/")"
+ROOT_PART_NO="$(echo "$ROOT_PART" | sed "s/.*\([0-9]\+\)/\1/")"
+
+ROOT_DEV_ID="$(basename $(realpath $(realpath /sys/class/block/$(basename "$ROOT_PART"))/../bdi))"
+ROOT_DEV="/dev/block/$ROOT_DEV_ID"
+
+echo "$ROOT_DEV"
+cat << EOF | parted ---pretend-input-tty "$ROOT_DEV"
+resizepart
+fix
+$ROOT_PART_NO
+yes
+100%
+EOF
+
+btrfs filesystem resize max /
+
+systemctl disable growroot

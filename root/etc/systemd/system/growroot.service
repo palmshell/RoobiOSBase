@@ -1,0 +1,9 @@
+[Unit]
+Description=Grow root partition
+After=-.mount
+
+[Service]
+ExecStart=/bin/bash /usr/local/sbin/growroot
+
+[Install]
+WantedBy=default.target
