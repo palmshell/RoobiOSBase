@@ -1,5 +1,5 @@
 {
-    token: 123
+    token: token_here
     main_address: url
     update_address: by_token/
     update_list_address: test-items/
