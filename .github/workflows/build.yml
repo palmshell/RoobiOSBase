@@ -25,4 +25,4 @@ jobs:
         with:
           name: ${{ vars.BRANCH_NAME }}
           path: |
-            Roobi.img
+            Roobi.img.xz
