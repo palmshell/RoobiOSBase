@@ -11,7 +11,7 @@ apt install kpartx -y
 apt install btrfs-progs -y
 
 # Get the base os
-curl -o roobi.img.zip  $1
+curl -L  $1 -o roobi.img.zip
 
 unzip -d ./ roobi.img.zip
 
