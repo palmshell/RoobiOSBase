@@ -102,7 +102,7 @@ echo "Test partition table for additional issue..."
 sgdisk -v "$OUTPUT_FILE" >/dev/null
 
 echo "Compress image."
-echo "skip"
-#xz -fT 0 "$OUTPUT_FILE"
+#echo "skip"
+xz -fT 0 "$OUTPUT_FILE"
 
-#echo "Image build completed."
+echo "Image build completed."
