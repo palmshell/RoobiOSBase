@@ -1,0 +1,1 @@
+cmd_/usr/factory/progress/script/linuxpg/Module.symvers :=  sed 's/ko$$/o/'  /usr/factory/progress/script/linuxpg/modules.order | scripts/mod/modpost  -a   -N -o /usr/factory/progress/script/linuxpg/Module.symvers -n -e -i Module.symvers -T - 

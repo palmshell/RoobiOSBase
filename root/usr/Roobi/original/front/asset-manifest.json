@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6ac299de.css",
+    "main.js": "/static/js/main.372720f0.js",
+    "static/js/787.98b9a2b6.chunk.js": "/static/js/787.98b9a2b6.chunk.js",
+    "static/media/contexts.webp": "/static/media/contexts.c9b36b0ac0d31a927334.webp",
+    "static/media/button-tips.webp": "/static/media/button-tips.79dda167452d657ee030.webp",
+    "static/media/pcBox.svg": "/static/media/pcBox.3992b7f60d21fc1b29b25ccc0f04d0db.svg",
+    "static/media/logo.svg": "/static/media/logo.a7b041e360c719eee651aa196eb9f2a4.svg",
+    "static/media/cache.svg": "/static/media/cache.60ada5221577bcfa2eaf5a6ca86a23c6.svg",
+    "static/media/server.svg": "/static/media/server.a798f8905ac1f960472bdf2d506d7abf.svg",
+    "static/media/lang-icon.svg": "/static/media/lang-icon.97f94ae6bf932839efca09b897bb3664.svg",
+    "static/media/res-c.svg": "/static/media/res-c.e89ef1466b5593324ccf2c16798d7bd5.svg",
+    "static/media/res.svg": "/static/media/res.2b0b811f6eb12823fa1898a29f1c9509.svg",
+    "static/media/download.svg": "/static/media/download.7d52e1a4de67071f82c542a492456e63.svg",
+    "static/media/wifi-locked-1.svg": "/static/media/wifi-locked-1.50eb95d872982ca17ed2284cb5f564e7.svg",
+    "static/media/wifi-locked-2.svg": "/static/media/wifi-locked-2.bafb3860752424ede806627389ca8062.svg",
+    "static/media/wifi-locked-3.svg": "/static/media/wifi-locked-3.12220d1775fbe2430415212a50a97482.svg",
+    "static/media/del.svg": "/static/media/del.bc41458bb0b6b75bfbdcb680e391cb03.svg",
+    "static/media/mounting.svg": "/static/media/mounting.91a8c166c986435a19acd1a65fbee396.svg",
+    "static/media/wifi-1.svg": "/static/media/wifi-1.f43c6bce81fee4dcbbd335626bebec96.svg",
+    "static/media/clear.svg": "/static/media/clear.636ba705589f14a25fbf0010faef1eae.svg",
+    "static/media/wifi-2.svg": "/static/media/wifi-2.f0e58a3c7c93e5936105e6b63fe74cbb.svg",
+    "static/media/wifi-3.svg": "/static/media/wifi-3.0f2c9e9c6e20c9b2ced21c8a66643dd9.svg",
+    "static/media/close-circle-fill.svg": "/static/media/close-circle-fill.6d445a59a38348901c5557b05f3253c7.svg",
+    "index.html": "/index.html",
+    "static/media/result-icon.svg": "/static/media/result-icon.06c5ae2a13e16b8bdc9337cb6e3e2361.svg",
+    "static/media/warnings.svg": "/static/media/warnings.9edd523cfd18d0041026ff80c88dfe7b.svg",
+    "main.6ac299de.css.map": "/static/css/main.6ac299de.css.map",
+    "main.372720f0.js.map": "/static/js/main.372720f0.js.map",
+    "787.98b9a2b6.chunk.js.map": "/static/js/787.98b9a2b6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6ac299de.css",
+    "static/js/main.372720f0.js"
+  ]
+}
