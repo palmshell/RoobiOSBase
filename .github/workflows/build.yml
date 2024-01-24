@@ -5,8 +5,10 @@ on:
 permissions:
   contents: write
 
+
 jobs:
   build:
+    environment: PS006
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
