@@ -40,7 +40,6 @@ ROOT="${TARGET_DEV}p2"
 
 
 mount -o compress=zstd $ROOT /mnt
-mkdir /mnt/boot
 mount $EFI /mnt/boot
 
 # ^^^^^^^^^^^^^^^^^^^^^^^^ set disk ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
