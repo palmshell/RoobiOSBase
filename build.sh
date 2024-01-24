@@ -46,11 +46,10 @@ mount $EFI /mnt/boot
 
 sudo cp -r "./root/." /mnt
 
-echo $3
 
-sed -i "s/url/$3/g" /mnt/usr/factory/progress/_config.hjson
+sed -i "s/url/${3//\//\\/}/g" /mnt/usr/factory/progress/_config.hjson
 
-sed -i "s/token_here/$2/g" /mnt/usr/factory/progress/_config.hjson
+sed -i "s/token_here/${2//\//\\/}/g" /mnt/usr/factory/progress/_config.hjson
 
 
 find_root_part() {
