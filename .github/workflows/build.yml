@@ -26,3 +26,11 @@ jobs:
           name: ${{ vars.BRANCH_NAME }}
           path: |
             Roobi.img.xz
+      - name: make flasher
+        run: sudo bash make_flasher.sh
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ vars.BRANCH_NAME }}_flasher
+          path: |
+            ps006_flasher.img.xz

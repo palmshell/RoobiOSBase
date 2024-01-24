@@ -103,6 +103,6 @@ sgdisk -v "$OUTPUT_FILE" >/dev/null
 
 echo "Compress image."
 #echo "skip"
-xz -fT 0 "$OUTPUT_FILE"
+xz -fek9T 0 "$OUTPUT_FILE"
 
 echo "Image build completed."
