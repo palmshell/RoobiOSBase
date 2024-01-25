@@ -44,6 +44,8 @@ mount $EFI /mnt/boot
 
 # ^^^^^^^^^^^^^^^^^^^^^^^^ set disk ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+rm /mnt/empty.img
+
 sudo cp -r "./root/." /mnt
 
 
