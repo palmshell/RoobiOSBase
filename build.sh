@@ -52,7 +52,7 @@ mount_image() {
 }
 
 truncate -s 5G "$OUTPUT_FILE"
-sgdisk --clear --new=1::150M --typecode=1:ef00 --new=2:: "$OUTPUT_FILE"
+sgdisk --clear --new=1::200M --typecode=1:ef00 --new=2:: "$OUTPUT_FILE"
 
 TARGET_DEV="/dev/mapper/$(mount_image)"
 
