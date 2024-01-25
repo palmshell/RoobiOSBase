@@ -73,7 +73,7 @@ mount $EFI /mnt/boot
 # ------------------------ install base ----------------------------
 
 # base
-pacstrap -K /mnt base linux-lts linux-firmware intel-ucode xf86-video-intel electron sudo grub efibootmgr networkmanager xorg-server xorg-xinit openssh adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g python python-pyqt5 rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python-evdev python-pyserial libgpiod nginx libpulse
+pacstrap -K /mnt base linux linux-firmware intel-ucode xf86-video-intel electron sudo grub efibootmgr networkmanager xorg-server xorg-xinit openssh adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g python python-pyqt5 rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python-evdev python-pyserial libgpiod nginx libpulse
 genfstab -U /mnt >> /mnt/etc/fstab
 sed -i "s/^.*swap.*$//g" /mnt/etc/fstab
 sed -i "s/^.*ext4.*$//g" /mnt/etc/fstab
