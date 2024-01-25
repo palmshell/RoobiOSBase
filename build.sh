@@ -114,6 +114,7 @@ echo "Createboot ..."
 
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
+dd if=/dev/zero of=/mnt/empty.img bs=1M count=150
 
 ########################## server ####################################
 echo "enable systemctl..."
