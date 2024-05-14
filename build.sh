@@ -26,7 +26,9 @@ SigLevel = Never
 
   mkdir -p /etc/pacman.d
 
-  echo "Server = https://archmirror1.octyl.net/\$repo/os/\$arch
+  echo "Server = https://geo.mirror.pkgbuild.com/\$repo/os/\$arch
+Server = https://mirror.rackspace.com/archlinux/\$repo/os/\$arch
+Server = https://archmirror1.octyl.net/\$repo/os/\$arch
 Server = https://zxcvfdsa.com/arch/\$repo/os/\$arch
 Server = http://archmirror1.octyl.net/\$repo/os/\$arch
 Server = https://mirror.sfo12.us.leaseweb.net/archlinux/\$repo/os/\$arch
@@ -73,7 +75,7 @@ mount $EFI /mnt/boot
 # ------------------------ install base ----------------------------
 
 # base
-pacstrap -K /mnt base linux linux-firmware vulkan-intel intel-ucode electron sudo grub efibootmgr networkmanager xorg-server xorg-xinit openssh adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python python-evdev python-pyserial libgpiod nginx libpulse
+pacstrap -K /mnt base base-devel linux linux-firmware vulkan-intel intel-ucode sudo grub efibootmgr networkmanager openssh electron xorg-xinit  adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python python-evdev python-pyserial libgpiod nginx libpulse
 genfstab -U /mnt >> /mnt/etc/fstab
 sed -i "s/^.*swap.*$//g" /mnt/etc/fstab
 sed -i "s/^.*ext4.*$//g" /mnt/etc/fstab
@@ -119,6 +121,14 @@ dd if=/dev/zero of=/mnt/empty.img bs=1M count=150
 ########################## server ####################################
 echo "enable systemctl..."
 arch-chroot /mnt systemctl enable systemd-timesyncd NetworkManager
+
+chmod -R  777 /mnt/home/ps/xorgproto-git/
+arch-chroot /mnt bash -c 'cd /home/ps/xorgproto-git && su ps -c "makepkg -si" '
+
+chmod -R  777 /mnt/home/ps/xorg-server-git/
+arch-chroot /mnt bash -c 'cd /home/ps/xorg-server-git && su ps -c "makepkg -si" '
+
+arch-chroot /mnt pacman -R base-devel git
 
 echo "Clean up..."
 arch-chroot /mnt pacman -Scc

@@ -12,7 +12,6 @@ ROOT_DEV="/dev/block/$ROOT_DEV_ID"
 echo "$ROOT_DEV"
 cat << EOF | parted ---pretend-input-tty "$ROOT_DEV"
 resizepart
-fix
 $ROOT_PART_NO
 yes
 100%
