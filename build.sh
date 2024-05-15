@@ -115,7 +115,7 @@ sudo cp -r "./root/." /mnt
 
 ########################## server ####################################
 echo "enable systemctl..."
-arch-chroot /mnt systemctl enable systemd-timesyncd NetworkManager
+arch-chroot /mnt systemctl enable systemd-timesyncd NetworkManager growroot
 
 chmod -R  777 /mnt/home/ps/xorgproto-git/
 arch-chroot /mnt bash -c 'cd /home/ps/xorgproto-git && su ps -c "yes | makepkg -si" '
@@ -123,9 +123,10 @@ arch-chroot /mnt bash -c 'cd /home/ps/xorgproto-git && su ps -c "yes | makepkg -
 chmod -R  777 /mnt/home/ps/xorg-server-git/
 arch-chroot /mnt bash -c 'cd /home/ps/xorg-server-git && su ps -c "yes | makepkg --nocheck -si" '
 
-arch-chroot /mnt pacman -Sy --noconfirm  electron xorg-xinit adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python python-evdev python-pyserial libgpiod nginx libpulse
+arch-chroot /mnt pacman -Sy --noconfirm  electron xorg-xinit intel-gpu-tools adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python python-evdev python-pyserial libgpiod nginx libpulse
 
 arch-chroot /mnt mkinitcpio -P
+dd if=/dev/zero of=/mnt/empty.img bs=1M count=150
 
 echo "Createboot ..."
 
