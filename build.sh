@@ -118,12 +118,12 @@ echo "enable systemctl..."
 arch-chroot /mnt systemctl enable systemd-timesyncd NetworkManager
 
 chmod -R  777 /mnt/home/ps/xorgproto-git/
-arch-chroot /mnt bash -c 'cd /home/ps/xorgproto-git && su ps -c "makepkg -si --noconfirm " '
+arch-chroot /mnt bash -c 'cd /home/ps/xorgproto-git && su ps -c "yes | makepkg -si" '
 
 chmod -R  777 /mnt/home/ps/xorg-server-git/
-arch-chroot /mnt bash -c 'cd /home/ps/xorg-server-git && su ps -c "makepkg -si --noconfirm" '
+arch-chroot /mnt bash -c 'cd /home/ps/xorg-server-git && su ps -c "yes | makepkg --nocheck -si" '
 
-arch-chroot /mnt pacman -Sy --noconfirm  electron xorg-xinit  adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python python-evdev python-pyserial libgpiod nginx libpulse
+arch-chroot /mnt pacman -Sy --noconfirm  electron xorg-xinit adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python python-evdev python-pyserial libgpiod nginx libpulse
 
 arch-chroot /mnt mkinitcpio -P
 
@@ -132,9 +132,9 @@ echo "Createboot ..."
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Clean up..."
-arch-chroot /mnt pacman -R --noconfirm base-devel git
-arch-chroot /mnt pacman -Scc --noconfirm
-
+arch-chroot /mnt pacman -Rs --noconfirm base-devel git meson
+rm -rf /mnt/home/ps/xorg-server-git/ /mnt/home/ps/xorgproto-git/
+arch-chroot /mnt bash -c 'pacman -Rns $(pacman -Qtdq)'
 rm /mnt/var/cache/pacman/pkg/*
 rm /mnt/var/lib/pacman/sync/*.db
 
