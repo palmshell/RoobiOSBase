@@ -109,14 +109,9 @@ arch-chroot /mnt bash -c 'echo "ps ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ROOBI --removable
 sudo cp -r "./root/." /mnt
 
-arch-chroot /mnt mkinitcpio -P
-
-echo "Createboot ..."
 
 
-arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
-
-dd if=/dev/zero of=/mnt/empty.img bs=1M count=150
+# dd if=/dev/zero of=/mnt/empty.img bs=1M count=150
 
 ########################## server ####################################
 echo "enable systemctl..."
@@ -128,11 +123,16 @@ arch-chroot /mnt bash -c 'cd /home/ps/xorgproto-git && su ps -c "makepkg -si --n
 chmod -R  777 /mnt/home/ps/xorg-server-git/
 arch-chroot /mnt bash -c 'cd /home/ps/xorg-server-git && su ps -c "makepkg -si --noconfirm" '
 
-arch-chroot /mnt pacman -Sy -noconfirm  electron xorg-xinit  adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python python-evdev python-pyserial libgpiod nginx libpulse
+arch-chroot /mnt pacman -Sy --noconfirm  electron xorg-xinit  adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python python-evdev python-pyserial libgpiod nginx libpulse
 
-arch-chroot /mnt pacman -R -noconfirm base-devel git
+arch-chroot /mnt mkinitcpio -P
+
+echo "Createboot ..."
+
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Clean up..."
+arch-chroot /mnt pacman -R --noconfirm base-devel git
 arch-chroot /mnt pacman -Scc --noconfirm
 
 rm /mnt/var/cache/pacman/pkg/*
