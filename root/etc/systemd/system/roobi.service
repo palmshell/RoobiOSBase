@@ -1,0 +1,11 @@
+[Unit]
+Description=Roobi server
+After=network.target
+
+[Service]
+WorkingDirectory=/usr/Roobi
+ExecStart=/bin/bash /usr/Roobi/start.sh
+KillSignal=SIGKILL
+
+[Install]
+WantedBy=multi-user.target

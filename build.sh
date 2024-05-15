@@ -106,8 +106,8 @@ echo ps:ps | arch-chroot /mnt chpasswd
 arch-chroot /mnt mkdir -p /etc/sudoers.d
 arch-chroot /mnt bash -c 'echo "ps ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/ps'
 
-arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ROOBI --removable
 sudo cp -r "./root/." /mnt
+arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ROOBI --removable
 
 
 
