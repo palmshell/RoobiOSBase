@@ -10,6 +10,9 @@ ROOT_DEV_ID="$(basename $(realpath $(realpath /sys/class/block/$(basename "$ROOT
 ROOT_DEV="/dev/block/$ROOT_DEV_ID"
 
 echo "$ROOT_DEV"
+
+echo w | fdisk $ROOT_DEV
+
 cat << EOF | parted ---pretend-input-tty "$ROOT_DEV"
 resizepart
 $ROOT_PART_NO
