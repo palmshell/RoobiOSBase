@@ -123,7 +123,7 @@ arch-chroot /mnt bash -c 'cd /home/ps/xorgproto-git && su ps -c "yes | makepkg -
 chmod -R  777 /mnt/home/ps/xorg-server-git/
 arch-chroot /mnt bash -c 'cd /home/ps/xorg-server-git && su ps -c "yes | makepkg --nocheck -si" '
 
-arch-chroot /mnt pacman -Sy --noconfirm  electron xorg-xinit intel-gpu-tools adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python python-evdev python-pyserial libgpiod nginx libpulse
+arch-chroot /mnt pacman -Sy --noconfirm  electron xorg-xset xorg-xinit intel-gpu-tools adobe-source-han-sans-cn-fonts noto-fonts adobe-source-han-sans-kr-fonts parted pigz usbutils vim nano lsof iperf3 stress bc net-tools alsa-utils bluez bluez-utils btrfs-progs gptfdisk ntfs-3g rsync bash-completion wget bind-tools hdparm smartmontools hdparm sysstat lvm2 mdadm tcpdump unzip timeshift gzip xz dmidecode python python-evdev python-pyserial libgpiod nginx libpulse
 
 arch-chroot /mnt mkinitcpio -P
 dd if=/dev/zero of=/mnt/empty.img bs=1M count=150
