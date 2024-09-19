@@ -48,11 +48,7 @@ rm /mnt/empty.img
 
 sudo cp -r "./root/." /mnt
 
-
-sed -i "s/url/${3//\//\\/}/g" /mnt/usr/factory/progress/_config.hjson
-
-sed -i "s/token_here/${2//\//\\/}/g" /mnt/usr/factory/progress/_config.hjson
-
+arch-chroot /mnt systemctl enable roobi roobiChecker avahi-daemon
 
 find_root_part() {
   local ROOT_PART

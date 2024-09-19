@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
       - name: Build
         run: |
-          sudo bash build.sh ${{ vars.BASE_OS_URL }} ${{ secrets.TEST_TOKEN }} ${{ vars.TEST_SERVER_ADDRESS }}
+          sudo bash build.sh ${{ vars.BASE_OS_URL }}
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -33,4 +33,4 @@ jobs:
         with:
           name: ${{ vars.BRANCH_NAME }}_flasher
           path: |
-            ps006_flasher.img.xz
+            ${{ vars.BRANCH_NAME }}_flasher.img.xz

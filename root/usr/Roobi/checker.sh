@@ -9,9 +9,6 @@ function check_item() {
     if [ "`curl -sL http://127.0.0.1/ping`" == "pong" ];then
         exit 0
     fi
-    if [ "`curl -sL http://127.0.0.1:739/ping`" == "pong" ];then
-        exit 0
-    fi
     return 0
 }
 
