@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   build:
-    environment: PS006
+    environment: PS010
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
