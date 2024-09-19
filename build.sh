@@ -48,7 +48,10 @@ rm /mnt/empty.img
 
 sudo cp -r "./root/." /mnt
 
-systemctl --root=/mnt systemctl enable roobi roobiChecker avahi-daemon
+ln -s /mnt/lib/systemd/system/roobi.service /mnt/etc/systemd/system/multi-user.target.wants/roobi.service
+ln -s /mnt/lib/systemd/system/roobiChecker.service /mnt/etc/systemd/system/multi-user.target.wants/roobiChecker.service
+ln -s /mnt/lib/systemd/system/avahi-daemon.service /mnt/etc/systemd/system/multi-user.target.wants/avahi-daemon.service
+
 
 find_root_part() {
   local ROOT_PART
