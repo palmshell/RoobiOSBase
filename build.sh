@@ -48,7 +48,7 @@ rm /mnt/empty.img
 
 sudo cp -r "./root/." /mnt
 
-arch-chroot /mnt systemctl enable roobi roobiChecker avahi-daemon
+systemctl --root=/mnt systemctl enable roobi roobiChecker avahi-daemon
 
 find_root_part() {
   local ROOT_PART
